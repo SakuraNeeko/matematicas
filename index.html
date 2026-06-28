@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matemática Financiera | Interés Simple y Compuesto</title>
+
+<!-- Fuentes: Lora (títulos), Inter (texto), IBM Plex Mono (números y fórmulas) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="contenedor">
+    <span class="marca">📘 Matemática Financiera</span>
+    <nav class="menu">
+      <a href="index.html" class="activo">Material de estudio</a>
+      <a href="app.html">Simulador</a>
+    </nav>
+  </div>
+</header>
+
+<main class="contenedor">
+
+  <h1>Interés Simple y Compuesto</h1>
+  <p class="subtitulo">
+    El fundamento matemático detrás de préstamos, ahorros e inversiones:
+    cómo crece el dinero a través del tiempo.
+  </p>
+
+  <!-- ============================================================ -->
+  <h2><span class="num">01</span>¿Qué es el interés?</h2>
+  <p>
+    El <strong>interés</strong> es el costo de usar dinero ajeno (cuando alguien presta)
+    o la ganancia por dejar trabajar tu dinero (cuando alguien invierte o ahorra).
+    Toda fórmula financiera de interés gira alrededor de tres ingredientes:
+  </p>
+  <div class="tarjeta">
+    <ul>
+      <li><strong>C</strong> — Capital inicial: el dinero con el que se empieza.</li>
+      <li><strong>i</strong> — Tasa de interés: el porcentaje que se cobra o se gana por período, expresado en decimal (5% → 0.05).</li>
+      <li><strong>t</strong> — Tiempo: cuántos períodos pasan (normalmente años).</li>
+    </ul>
+    <p style="margin-bottom:0;">
+      La diferencia entre interés <em>simple</em> y <em>compuesto</em> está en
+      <strong>sobre qué monto se calcula el interés en cada período</strong>.
+    </p>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2><span class="num">02</span>Interés simple</h2>
+  <p>
+    En el interés simple, el interés <strong>siempre se calcula sobre el capital inicial</strong>,
+    sin importar cuánto interés se haya acumulado antes. Por eso crece de forma constante (lineal).
+  </p>
+
+  <div class="formula-destacada">
+    I = C × i × t
+    <small>I = interés generado · C = capital inicial · i = tasa por período · t = número de períodos</small>
+  </div>
+  <div class="formula-destacada">
+    M = C + I = C × (1 + i × t)
+    <small>M = monto final (capital + interés acumulado)</small>
+  </div>
+
+  <div class="tarjeta">
+    <p class="texto-pregunta" style="margin:0 0 8px;">Ejemplo práctico</p>
+    <p style="margin:0;">
+      Prestas <span class="num-mono">$1000</span> a una tasa del
+      <span class="num-mono">5% anual</span> durante <span class="num-mono">3 años</span>, con interés simple.
+    </p>
+    <div class="ejemplo">
+      <p style="margin:4px 0;">I = 1000 × 0.05 × 3 = <strong>$150</strong></p>
+      <p style="margin:4px 0;">M = 1000 + 150 = <strong>$1150</strong></p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2><span class="num">03</span>Interés compuesto</h2>
+  <p>
+    En el interés compuesto, el interés de cada período se calcula sobre el
+    <strong>capital + los intereses ya acumulados</strong>. Es decir, los intereses
+    también generan intereses. Por eso el dinero crece de forma exponencial, no lineal.
+  </p>
+
+  <div class="formula-destacada">
+    M = C × (1 + i)<sup>t</sup>
+    <small>M = monto final · C = capital inicial · i = tasa por período · t = número de períodos</small>
+  </div>
+  <div class="formula-destacada">
+    I = M − C
+    <small>El interés generado es simplemente la diferencia entre el monto final y el capital inicial</small>
+  </div>
+
+  <div class="tarjeta">
+    <p class="texto-pregunta" style="margin:0 0 8px;">Mismo ejemplo, con interés compuesto</p>
+    <p style="margin:0;">
+      <span class="num-mono">$1000</span> al <span class="num-mono">5% anual</span> durante
+      <span class="num-mono">3 años</span>, con interés compuesto.
+    </p>
+    <div class="ejemplo">
+      <p style="margin:4px 0;">M = 1000 × (1.05)<sup>3</sup> = <strong>$1157.63</strong></p>
+      <p style="margin:4px 0;">I = 1157.63 − 1000 = <strong>$157.63</strong></p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <h2><span class="num">04</span>¿Por qué importa la diferencia?</h2>
+  <p>
+    Con los mismos $1000 al 5% anual, el interés compuesto genera
+    <strong>$7.63 más</strong> que el simple en solo 3 años. La diferencia parece pequeña al inicio,
+    pero se vuelve enorme con más tiempo, porque el compuesto crece exponencialmente.
+    Así se ven 10 años de los mismos $1000 al 5% anual:
+  </p>
+
+  <div class="tarjeta">
+    <div class="barras-wrap" id="grafico-comparativo"></div>
+    <div class="leyenda">
+      <span><span class="punto simple"></span> Interés simple</span>
+      <span><span class="punto compuesto"></span> Interés compuesto</span>
+    </div>
+  </div>
+  <p style="font-size:0.9rem;">
+    💡 Puedes probar tus propios números (capital, tasa y años) en el
+    <a href="app.html">simulador</a>, que aplica estas mismas fórmulas.
+  </p>
+
+  <!-- ============================================================ -->
+  <h2><span class="num">05</span>Pon a prueba lo aprendido</h2>
+  <p>Responde las 5 preguntas y presiona "Calificar" para ver tu resultado.</p>
+
+  <form class="tarjeta" id="quiz">
+
+    <div class="pregunta" data-correcta="b">
+      <p class="texto-pregunta">1. ¿Qué representa la variable "i" en las fórmulas de interés?</p>
+      <label class="opcion"><input type="radio" name="q1" value="a"> El tiempo transcurrido</label>
+      <label class="opcion"><input type="radio" name="q1" value="b"> La tasa de interés por período</label>
+      <label class="opcion"><input type="radio" name="q1" value="c"> El capital inicial</label>
+      <label class="opcion"><input type="radio" name="q1" value="d"> El monto final</label>
+    </div>
+
+    <div class="pregunta" data-correcta="b">
+      <p class="texto-pregunta">2. ¿Cuál es la fórmula correcta del interés simple?</p>
+      <label class="opcion"><input type="radio" name="q2" value="a"> I = C + i + t</label>
+      <label class="opcion"><input type="radio" name="q2" value="b"> I = C × i × t</label>
+      <label class="opcion"><input type="radio" name="q2" value="c"> I = C × (1 + i)^t</label>
+      <label class="opcion"><input type="radio" name="q2" value="d"> I = C ÷ i ÷ t</label>
+    </div>
+
+    <div class="pregunta" data-correcta="b">
+      <p class="texto-pregunta">3. En el interés compuesto, ¿sobre qué monto se calcula el interés de cada período?</p>
+      <label class="opcion"><input type="radio" name="q3" value="a"> Únicamente sobre el capital inicial</label>
+      <label class="opcion"><input type="radio" name="q3" value="b"> Sobre el capital más los intereses acumulados</label>
+      <label class="opcion"><input type="radio" name="q3" value="c"> Sobre el monto final del último año</label>
+      <label class="opcion"><input type="radio" name="q3" value="d"> Sobre la tasa de interés</label>
+    </div>
+
+    <div class="pregunta" data-correcta="b">
+      <p class="texto-pregunta">4. Con $1000 al 5% anual durante 3 años, ¿cuál es el monto final con interés simple?</p>
+      <label class="opcion"><input type="radio" name="q4" value="a"> $1050</label>
+      <label class="opcion"><input type="radio" name="q4" value="b"> $1150</label>
+      <label class="opcion"><input type="radio" name="q4" value="c"> $1157.63</label>
+      <label class="opcion"><input type="radio" name="q4" value="d"> $1500</label>
+    </div>
+
+    <div class="pregunta" data-correcta="b">
+      <p class="texto-pregunta">5. ¿Por qué el interés compuesto genera más dinero a largo plazo?</p>
+      <label class="opcion"><input type="radio" name="q5" value="a"> Porque la tasa aumenta cada año automáticamente</label>
+      <label class="opcion"><input type="radio" name="q5" value="b"> Porque los intereses generados también generan intereses</label>
+      <label class="opcion"><input type="radio" name="q5" value="c"> Porque el capital inicial se duplica solo</label>
+      <label class="opcion"><input type="radio" name="q5" value="d"> Porque el tiempo se cuenta dos veces</label>
+    </div>
+
+    <button type="button" class="btn" id="btn-calificar">Calificar</button>
+    <div id="resultado-quiz"></div>
+  </form>
+
+</main>
+
+<footer class="pie">
+  Proyecto de Matemática 1 — Matemática Financiera (Interés Simple y Compuesto)
+</footer>
+
+<script src="quiz.js"></script>
+</body>
+</html>

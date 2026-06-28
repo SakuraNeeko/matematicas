@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulador de Interés | Matemática Financiera</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="contenedor">
+    <span class="marca">📘 Matemática Financiera</span>
+    <nav class="menu">
+      <a href="index.html">Material de estudio</a>
+      <a href="app.html" class="activo">Simulador</a>
+    </nav>
+  </div>
+</header>
+
+<main class="contenedor">
+
+  <h1>Simulador de Interés</h1>
+  <p class="subtitulo">
+    Ingresa un capital, una tasa y un tiempo: el simulador aplica las fórmulas
+    de interés simple y compuesto y muestra cómo crece tu dinero año por año.
+  </p>
+
+  <div class="tarjeta">
+    <form id="form-simulador">
+      <div class="form-grid">
+
+        <div class="campo">
+          <label for="capital">Capital inicial (C) — en dólares</label>
+          <input type="number" id="capital" value="1000" min="0" step="0.01" required>
+        </div>
+
+        <div class="campo">
+          <label for="tasa">Tasa de interés anual (i) — en %</label>
+          <input type="number" id="tasa" value="5" min="0" step="0.01" required>
+        </div>
+
+        <div class="campo">
+          <label for="anios">Tiempo (t) — en años</label>
+          <input type="number" id="anios" value="5" min="1" max="40" step="1" required>
+        </div>
+
+        <div class="campo">
+          <label for="tipo">Tipo de interés a calcular</label>
+          <select id="tipo">
+            <option value="simple">Simple</option>
+            <option value="compuesto" selected>Compuesto</option>
+          </select>
+        </div>
+
+      </div>
+
+      <button type="submit" class="btn">Calcular</button>
+    </form>
+  </div>
+
+  <!-- Resultado: se llena dinámicamente con simulador.js -->
+  <div id="seccion-resultado" style="display:none;">
+
+    <div class="resumen-grid">
+      <div class="tarjeta">
+        Interés generado
+        <span class="valor" id="valor-interes">$0.00</span>
+      </div>
+      <div class="tarjeta">
+        Monto final
+        <span class="valor" id="valor-monto">$0.00</span>
+      </div>
+    </div>
+
+    <h2 style="margin-top:24px;"><span class="num">▸</span>Comparación: simple vs. compuesto</h2>
+    <div class="tarjeta">
+      <div class="barras-wrap" id="grafico-simulador"></div>
+      <div class="leyenda">
+        <span><span class="punto simple"></span> Interés simple</span>
+        <span><span class="punto compuesto"></span> Interés compuesto</span>
+      </div>
+    </div>
+
+    <h2><span class="num">▸</span>Detalle año por año — interés <span id="tipo-en-titulo">compuesto</span></h2>
+    <div class="tarjeta">
+      <table class="tabla-resultados">
+        <thead>
+          <tr>
+            <th>Año</th>
+            <th>Interés del período</th>
+            <th>Monto acumulado</th>
+          </tr>
+        </thead>
+        <tbody id="cuerpo-tabla">
+          <!-- filas generadas por simulador.js -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</main>
+
+<footer class="pie">
+  Proyecto de Matemática 1 — Matemática Financiera (Interés Simple y Compuesto)
+</footer>
+
+<script src="simulador.js"></script>
+</body>
+</html>

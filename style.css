@@ -1,0 +1,404 @@
+/* =========================================================
+   ESTILOS COMPARTIDOS
+   Tema: "ledger financiero" -> inspirado en libros contables
+   - Tipografía serif para títulos (Lora)
+   - Tipografía sans para texto (Inter)
+   - Tipografía monoespaciada para números y fórmulas (IBM Plex Mono)
+   - Paleta: verde (crecimiento del dinero) + dorado (acento)
+   ========================================================= */
+
+:root {
+  --bg: #faf7f1;
+  --card-bg: #ffffff;
+  --ink: #1e2a22;
+  --ink-soft: #50604f;
+  --green: #1b5e45;
+  --green-light: #2f7a5c;
+  --gold: #c9962f;
+  --line: #ddd5c4;
+  --red: #b3432b;
+  --radius: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Inter", system-ui, sans-serif;
+  line-height: 1.55;
+}
+
+.contenedor {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+}
+
+/* ---------- Encabezado y navegación ---------- */
+
+header.topbar {
+  border-bottom: 1px solid var(--line);
+  padding: 18px 20px;
+  margin-bottom: 36px;
+}
+
+header.topbar .contenedor {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.marca {
+  font-family: "Lora", serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--green);
+}
+
+nav.menu a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  margin-left: 18px;
+  font-size: 0.95rem;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+}
+
+nav.menu a:hover,
+nav.menu a.activo {
+  color: var(--green);
+  border-bottom-color: var(--gold);
+}
+
+/* ---------- Tipografía general ---------- */
+
+h1, h2, h3 {
+  font-family: "Lora", serif;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.1rem;
+  margin-bottom: 6px;
+}
+
+.subtitulo {
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin-top: 48px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+h2 .num {
+  color: var(--gold);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1rem;
+  margin-right: 8px;
+}
+
+p {
+  color: var(--ink-soft);
+}
+
+code, .formula, .num-mono {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+/* ---------- Tarjetas ---------- */
+
+.tarjeta {
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  margin: 18px 0;
+}
+
+.formula-destacada {
+  background: #f3f0e7;
+  border-left: 3px solid var(--green);
+  border-radius: 4px;
+  padding: 14px 18px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.05rem;
+  color: var(--green);
+  margin: 16px 0;
+}
+
+.formula-destacada small {
+  display: block;
+  font-family: "Inter", sans-serif;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  margin-top: 6px;
+}
+
+.ejemplo {
+  border-top: 1px dashed var(--line);
+  margin-top: 16px;
+  padding-top: 14px;
+  font-size: 0.95rem;
+}
+
+.ejemplo strong {
+  color: var(--green);
+}
+
+/* ---------- Comparación visual (barras) ---------- */
+
+.barras-wrap {
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+  height: 180px;
+  margin: 24px 0 8px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0;
+}
+
+.grupo-barra {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.par-barras {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 100%;
+}
+
+.barra {
+  width: 16px;
+  border-radius: 3px 3px 0 0;
+  transition: height 0.5s ease;
+}
+
+.barra.simple { background: var(--gold); }
+.barra.compuesto { background: var(--green); }
+
+.grupo-barra .etiqueta-anio {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  margin-top: 6px;
+}
+
+.leyenda {
+  display: flex;
+  gap: 22px;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+
+.leyenda span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.punto {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.punto.simple { background: var(--gold); }
+.punto.compuesto { background: var(--green); }
+
+/* ---------- Quiz ---------- */
+
+.pregunta {
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.pregunta:last-of-type {
+  border-bottom: none;
+}
+
+.pregunta p.texto-pregunta {
+  color: var(--ink);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.opcion {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.opcion:hover {
+  background: #f3f0e7;
+}
+
+.opcion input {
+  margin-right: 8px;
+}
+
+.pregunta.correcta .opcion.marcada {
+  background: #e3f0e9;
+  color: var(--green);
+}
+
+.pregunta.incorrecta .opcion.marcada {
+  background: #f7e6e1;
+  color: var(--red);
+}
+
+.pregunta .opcion.respuesta-correcta {
+  outline: 1px dashed var(--green);
+}
+
+#resultado-quiz {
+  font-family: "Lora", serif;
+  font-size: 1.2rem;
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: var(--radius);
+  background: #f3f0e7;
+  display: none;
+}
+
+/* ---------- Botones ---------- */
+
+button.btn {
+  background: var(--green);
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button.btn:hover {
+  background: var(--green-light);
+}
+
+button.btn:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ---------- Formularios (app del simulador) ---------- */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 18px 0;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+}
+
+.campo label {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+
+.campo input,
+.campo select {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.95rem;
+  background: white;
+  color: var(--ink);
+}
+
+/* ---------- Tabla de resultados ---------- */
+
+table.tabla-resultados {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.9rem;
+}
+
+table.tabla-resultados th,
+table.tabla-resultados td {
+  text-align: right;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+table.tabla-resultados th:first-child,
+table.tabla-resultados td:first-child {
+  text-align: left;
+}
+
+table.tabla-resultados thead th {
+  font-family: "Inter", sans-serif;
+  color: var(--ink-soft);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.resumen-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.resumen-grid .tarjeta {
+  margin: 0;
+  text-align: center;
+}
+
+.resumen-grid .valor {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.6rem;
+  color: var(--green);
+  display: block;
+  margin-top: 6px;
+}
+
+footer.pie {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  margin-top: 60px;
+}
+
+@media (max-width: 560px) {
+  .form-grid, .resumen-grid {
+    grid-template-columns: 1fr;
+  }
+  h1 { font-size: 1.7rem; }
+}
