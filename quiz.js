@@ -1,7 +1,3 @@
-/* =========================================================
-   QUIZ.JS — Gráfico comparativo + Quiz animado
-   ========================================================= */
-
 function calcularMontoSimple(capital, tasaDecimal, periodos) {
   const resultados = [];
   for (let anio = 1; anio <= periodos; anio++) {

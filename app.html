@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Simulador de Interés | Matemática Financiera</title>
 <link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
 
@@ -89,8 +90,29 @@
       <h2>Comparación: simple vs. compuesto</h2>
     </div>
     <div class="tarjeta">
-      <div class="grafico-wrapper">
-        <div class="barras-wrap" id="grafico-simulador"></div>
+      <!-- Controles del gráfico -->
+      <div class="grafico-controles">
+        <div class="filtro-grupo">
+          <span class="filtro-label">Ver años:</span>
+          <div class="filtro-botones" id="filtro-botones">
+            <button class="filtro-btn activo" data-rango="todos">Todos</button>
+            <button class="filtro-btn" data-rango="5">Últimos 5</button>
+            <button class="filtro-btn" data-rango="10">Últimos 10</button>
+            <button class="filtro-btn" data-rango="15">Últimos 15</button>
+            <button class="filtro-btn" data-rango="20">Últimos 20</button>
+          </div>
+        </div>
+        <div class="filtro-grupo">
+          <span class="filtro-label">Tipo de gráfico:</span>
+          <div class="filtro-botones">
+            <button class="filtro-btn tipo-btn activo" data-tipo="bar">Barras</button>
+            <button class="filtro-btn tipo-btn" data-tipo="line">Líneas</button>
+          </div>
+        </div>
+      </div>
+      <!-- Canvas de Chart.js -->
+      <div class="canvas-wrapper">
+        <canvas id="grafico-simulador"></canvas>
       </div>
       <div class="leyenda">
         <span><span class="punto simple"></span> Interés simple</span>

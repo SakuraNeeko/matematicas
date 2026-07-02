@@ -857,6 +857,77 @@ table.tabla-resultados tbody tr:last-child td {
 }
 
 /* ============================================================
+   CONTROLES DEL GRÁFICO INTERACTIVO
+   ============================================================ */
+
+.grafico-controles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+  align-items: center;
+}
+
+.filtro-grupo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filtro-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.filtro-botones {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.filtro-btn {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.18s;
+  font-family: "Inter", sans-serif;
+  box-shadow: none;
+}
+
+.filtro-btn:hover {
+  border-color: rgba(46,204,113,0.4);
+  color: var(--ink);
+  background: var(--green-glow);
+  transform: none;
+}
+
+.filtro-btn.activo {
+  background: linear-gradient(135deg, var(--green), var(--green-dark));
+  border-color: transparent;
+  color: #0d1f17;
+  font-weight: 700;
+  box-shadow: 0 2px 10px rgba(46,204,113,0.25);
+}
+
+.canvas-wrapper {
+  position: relative;
+  height: 320px;
+  margin: 4px 0 12px;
+}
+
+/* ============================================================
    FOOTER
    ============================================================ */
 
