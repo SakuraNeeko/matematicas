@@ -1,7 +1,3 @@
-/* =========================================================
-   SIMULADOR.JS — Cálculo + Chart.js interactivo + tabla
-   ========================================================= */
-
 /* ---------- Fórmulas financieras ---------- */
 
 function calcularMontoSimple(capital, tasaDecimal, periodos) {
@@ -62,9 +58,7 @@ function llenarTabla(idCuerpoTabla, filas) {
   });
 }
 
-/* ============================================================
-   GRÁFICO INTERACTIVO CON CHART.JS
-   ============================================================ */
+
 
 let chartInstance = null;   // referencia al gráfico activo
 let datosGlobales = null;   // guarda los datos para filtrar sin recalcular
